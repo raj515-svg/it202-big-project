@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Crimes And Sex Offenders In Chicago</title>
+    <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .dropbtn {
+            background-color: grey;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #3e8e41;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f6f6f6;
+            overflow: auto;
+            border: 1px solid #ddd;
+            z-index: 1;
+        }
+        .dropdown-content select {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown select:hover {
+            background-color: #ddd;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content" style="text-align: center width:800px; margin:0 auto;">
+        <div class="contains" style="text-align: center">
+            <h2>Search by type of crime</h2>
+            <input type="text" placeholder="Type of Crime" id="crime">
+            <button class="button button1" id="txtSearch">
+                Search
+            </button>
+            <br>
+            <br>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js"></script>
+    <script>
+        var endpoint = "https://data.cityofchicago.org/resource/crimes.json";
+        var enpoint1 = "https://data.cityofchicago.org/resource/vc9r-bqvy.json";
+        const request = indexedDB.open('endpoint');
+         //                  request.onupgradeneeded = e => {
+         //                      alert("upgrade is called");
+         //                  }
+         //                  request.onsuccess = e => {
+         //                      alert("success is called");
+         //                  }
+         //                  request.onerror = e => {
+         //                      alert("error is called");
+         //                  }
+        const db = new Dexie('MyDatabase');
+        db.version(1).stores({
+            items: 'year, caseNum, crimeType',
+            // history: '++id'
+        });
+        $(document).ready(function() {
+            $.get(endpoint, function(response) {
+                $.each(response, function(i, v) {
+                    db.items.put({
+                        id: v.year,
+                        caseNum: v.case_number,
+                        crimeType: v.primary_type
+                    });
+                });
+            }).then(function() {
+                //
+                // Display the result
+                //
+                return db.items.each(item => console.log(item.id + " has " + item.type + " has " + item.
+                    case));
+            }).
+            catch(function(error) {
+                //
+                // Finally don't forget to catch any error
+                // that could have happened anywhere in the
+                // code blocks above.
+                //
+                alert("Ooops: " + error);
+            });
+        });
+         // Search by the type of crime
+        $(document).ready(function() {
+            $("#txtSearch").on("click", function() {
+                //hideAll();
+                $.get(endpoint + "?$where=primary_type='" + $("#crime").val() + "'", function(response) {
+                    $.each(response, function(i, v) {
+                        $("body").append("<div class='card' style='width: 25.5rem;'><div class='card-body'><h5 class='card-title'>" + v.primary_type + "</h5><h6 class='card-subtitle mb-2 text-muted'>" + v.case_number + "</h6><p class='card-text'> Address: " + v.block + "<br> Ward: " + v.ward + "<br>Description: " + v.description + "<br> Arrest: " + v.arrest + "<br> Year: " + v.year + "</p></h6> <button onclick ='hideCard()' id='mapSearch'>Directions</button></div></div>")
+                        //createMarkers(v);
+                        //count++;
+                    });
+                    //$("body").append("<div class = 'count' style= 'background-color:white'>Total results: " + count + "</div>")
+                });
+            });
+        });
+    </script>
+    <!--Search by type of crime and the year it happened-->
+    <div class="contains" style="text-align: center">
+        <h2> Search Year or Type of Crime</h2>
+        2019
+        <input type="checkbox" id="is2019Selected">2018:
+        <input type="checkbox" id="is2018Selected">2017:
+        <input type="checkbox" id="is2017Selected">2016:
+        <input type="checkbox" id="is2016Selected">2015:
+        <input type="checkbox" id="is2015Selected">2014:
+        <input type="checkbox" id="is2014Selected">2013:
+        <input type="checkbox" id="is2013Selected">2012:
+        <input type="checkbox" id="is2012Selected">2011:
+        <input type="checkbox" id="is2011Selected">2010:
+        <input type="checkbox" id="is2010Selected">2009:
+        <input type="checkbox" id="is2009Selected">2008:
+        <input type="checkbox" id="is2008Selected">2007:
+        <input type="checkbox" id="is2007Selected">2006:
+        <input type="checkbox" id="is2006Selected">2005:
+        <input type="checkbox" id="is2005Selected">2004:
+        <input type="checkbox" id="is2004Selected">2003:
+        <input type="checkbox" id="is2003Selected">2002:
+        <input type="checkbox" id="is2002Selected">2001:
+        <input type="checkbox" id="is2001Selected">
+        <br>
+        <br>
+        <div>
+            <button class="button button2" type="submit" id="search">Search by day</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
