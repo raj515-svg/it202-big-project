@@ -2,137 +2,50 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Crimes And Sex Offenders In Chicago</title>
-    <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@0.40.0/dist/material-components-web.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-        .dropbtn {
-            background-color: grey;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-        .dropbtn:hover, .dropbtn:focus {
-            background-color: #3e8e41;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f6f6f6;
-            overflow: auto;
-            border: 1px solid #ddd;
-            z-index: 1;
-        }
-        .dropdown-content select {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown select:hover {
-            background-color: #ddd;
-        }
-        .show {
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-fab@1.0.0/jquery-fab.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery-fab@1.0.0/jquery-fab.min.js"></script>
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
 </head>
 
-<body id='content'>
-    <div class="contains" style="text-align: center">
-        <h1 style="color:lightblue">Search By <span class="text-primary">Crime    </span> Type</h1>
-        <div class="search-bar">
-            <input type="text" placeholder="Type of crime" id="crime" style="display: inline">
-        </div>
-        <button id="search">
-            Search
+<body class='image'>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand" href="#">Chicago Crime Search</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <h2> Search by Year</h2>
-        2019:
-        <input type="checkbox" id="is2019Selected" value="2019">
-        <br>2018:
-        <input type="checkbox" id="is2018Selected" value="2018">
-        <br>2017:
-
-        <input type="checkbox" id="is2017Selected" value="2017">
-        <br>2016:
-
-        <input type="checkbox" id="is2016Selected" value="2016">
-        <br>2015:
-
-        <input type="checkbox" id="is2015Selected" value="2015">
-        <br>2014:
-
-        <input type="checkbox" id="is2014Selected" value="2014">
-        <br>2013:
-
-        <input type="checkbox" id="is2013Selected" value="2013">
-        <br>2012:
-
-        <input type="checkbox" id="is2012Selected" value="2012">
-        <br>2011:
-
-        <input type="checkbox" id="is2011Selected" value="2011">
-        <br>2010:
-
-        <input type="checkbox" id="is2010Selected" value="2010">
-        <br>2009:
-
-        <input type="checkbox" id="is2009Selected" value="2009">
-        <br>2008:
-
-        <input type="checkbox" id="is2008Selected" value="2008">
-        <br>2007:
-
-        <input type="checkbox" id="is2007Selected" value="2007">
-        <br>2006:
-
-        <input type="checkbox" id="is2006Selected" value="2006">
-        <br>2005:
-
-        <input type="checkbox" id="is2005Selected" value="2005">
-        <br>2004:
-
-        <input type="checkbox" id="is2004Selected" value="2004">
-        <br>2003:
-
-        <input type="checkbox" id="is2003Selected" value="2003">
-        <br>2002:
-
-        <input type="checkbox" id="is2002Selected" value="2002">
-        <br>2001:
-
-        <input type="checkbox" id="is2001Selected" value="2001">
-        <br>
-        <br>
-        <div>
-            <button class="button button2" type="submit" id="searchBy">Search by year</button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#crimesearch">Crime Search <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#map">Sex Offenders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+            </ul>
         </div>
+    </nav>
+
+    <div id = 'crimesearch'>
+        
     </div>
-    <div class="content" style="text-align: center width:800px; margin:0 auto;">
-        <div class="contains" style="text-align: center">
-            <h2>Case Number</h2>
-            <input type="text" placeholder="Case Number" id="caseNum">
-            <button class="button button1" id="numSearch">
-                Search
-            </button>
-            <br>
-            <br>
-        </div>
-    </div>
-    <script src='result.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src='/script/result.js'></script>
+    <script src='/script/navbar.js'></script>
 
 </body>
 
