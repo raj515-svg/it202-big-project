@@ -50,107 +50,92 @@
     </style>
 </head>
 
-<body>
+<body id='content'>
+    <div class="contains" style="text-align: center">
+        <h1 style="color:lightblue">Search By <span class="text-primary">Crime    </span> Type</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Type of crime" id="crime" style="display: inline">
+        </div>
+        <button id="search">
+            Search
+        </button>
+        <h2> Search by Year</h2>
+        2019:
+        <input type="checkbox" id="is2019Selected" value="2019">
+        <br>2018:
+        <input type="checkbox" id="is2018Selected" value="2018">
+        <br>2017:
+
+        <input type="checkbox" id="is2017Selected" value="2017">
+        <br>2016:
+
+        <input type="checkbox" id="is2016Selected" value="2016">
+        <br>2015:
+
+        <input type="checkbox" id="is2015Selected" value="2015">
+        <br>2014:
+
+        <input type="checkbox" id="is2014Selected" value="2014">
+        <br>2013:
+
+        <input type="checkbox" id="is2013Selected" value="2013">
+        <br>2012:
+
+        <input type="checkbox" id="is2012Selected" value="2012">
+        <br>2011:
+
+        <input type="checkbox" id="is2011Selected" value="2011">
+        <br>2010:
+
+        <input type="checkbox" id="is2010Selected" value="2010">
+        <br>2009:
+
+        <input type="checkbox" id="is2009Selected" value="2009">
+        <br>2008:
+
+        <input type="checkbox" id="is2008Selected" value="2008">
+        <br>2007:
+
+        <input type="checkbox" id="is2007Selected" value="2007">
+        <br>2006:
+
+        <input type="checkbox" id="is2006Selected" value="2006">
+        <br>2005:
+
+        <input type="checkbox" id="is2005Selected" value="2005">
+        <br>2004:
+
+        <input type="checkbox" id="is2004Selected" value="2004">
+        <br>2003:
+
+        <input type="checkbox" id="is2003Selected" value="2003">
+        <br>2002:
+
+        <input type="checkbox" id="is2002Selected" value="2002">
+        <br>2001:
+
+        <input type="checkbox" id="is2001Selected" value="2001">
+        <br>
+        <br>
+        <div>
+            <button class="button button2" type="submit" id="searchBy">Search by year</button>
+        </div>
+    </div>
     <div class="content" style="text-align: center width:800px; margin:0 auto;">
         <div class="contains" style="text-align: center">
-            <h2>Search by type of crime</h2>
-            <input type="text" placeholder="Type of Crime" id="crime">
-            <button class="button button1" id="txtSearch">
+            <h2>Case Number</h2>
+            <input type="text" placeholder="Case Number" id="caseNum">
+            <button class="button button1" id="numSearch">
                 Search
             </button>
             <br>
             <br>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js"></script>
-    <script>
-        var endpoint = "https://data.cityofchicago.org/resource/crimes.json";
-        var enpoint1 = "https://data.cityofchicago.org/resource/vc9r-bqvy.json";
-        const request = indexedDB.open('endpoint');
-         //                  request.onupgradeneeded = e => {
-         //                      alert("upgrade is called");
-         //                  }
-         //                  request.onsuccess = e => {
-         //                      alert("success is called");
-         //                  }
-         //                  request.onerror = e => {
-         //                      alert("error is called");
-         //                  }
-        const db = new Dexie('MyDatabase');
-        db.version(1).stores({
-            items: 'year, caseNum, crimeType',
-            // history: '++id'
-        });
-        $(document).ready(function() {
-            $.get(endpoint, function(response) {
-                $.each(response, function(i, v) {
-                    db.items.put({
-                        id: v.year,
-                        caseNum: v.case_number,
-                        crimeType: v.primary_type
-                    });
-                });
-            }).then(function() {
-                //
-                // Display the result
-                //
-                return db.items.each(item => console.log(item.id + " has " + item.type + " has " + item.
-                    case));
-            }).
-            catch(function(error) {
-                //
-                // Finally don't forget to catch any error
-                // that could have happened anywhere in the
-                // code blocks above.
-                //
-                alert("Ooops: " + error);
-            });
-        });
-         // Search by the type of crime
-        $(document).ready(function() {
-            $("#txtSearch").on("click", function() {
-                //hideAll();
-                $.get(endpoint + "?$where=primary_type='" + $("#crime").val() + "'", function(response) {
-                    $.each(response, function(i, v) {
-                        $("body").append("<div class='card' style='width: 25.5rem;'><div class='card-body'><h5 class='card-title'>" + v.primary_type + "</h5><h6 class='card-subtitle mb-2 text-muted'>" + v.case_number + "</h6><p class='card-text'> Address: " + v.block + "<br> Ward: " + v.ward + "<br>Description: " + v.description + "<br> Arrest: " + v.arrest + "<br> Year: " + v.year + "</p></h6> <button onclick ='hideCard()' id='mapSearch'>Directions</button></div></div>")
-                        //createMarkers(v);
-                        //count++;
-                    });
-                    //$("body").append("<div class = 'count' style= 'background-color:white'>Total results: " + count + "</div>")
-                });
-            });
-        });
-    </script>
-    <!--Search by type of crime and the year it happened-->
-    <div class="contains" style="text-align: center">
-        <h2> Search Year or Type of Crime</h2>
-        2019
-        <input type="checkbox" id="is2019Selected">2018:
-        <input type="checkbox" id="is2018Selected">2017:
-        <input type="checkbox" id="is2017Selected">2016:
-        <input type="checkbox" id="is2016Selected">2015:
-        <input type="checkbox" id="is2015Selected">2014:
-        <input type="checkbox" id="is2014Selected">2013:
-        <input type="checkbox" id="is2013Selected">2012:
-        <input type="checkbox" id="is2012Selected">2011:
-        <input type="checkbox" id="is2011Selected">2010:
-        <input type="checkbox" id="is2010Selected">2009:
-        <input type="checkbox" id="is2009Selected">2008:
-        <input type="checkbox" id="is2008Selected">2007:
-        <input type="checkbox" id="is2007Selected">2006:
-        <input type="checkbox" id="is2006Selected">2005:
-        <input type="checkbox" id="is2005Selected">2004:
-        <input type="checkbox" id="is2004Selected">2003:
-        <input type="checkbox" id="is2003Selected">2002:
-        <input type="checkbox" id="is2002Selected">2001:
-        <input type="checkbox" id="is2001Selected">
-        <br>
-        <br>
-        <div>
-            <button class="button button2" type="submit" id="search">Search by day</button>
-        </div>
-    </div>
+    <script src='result.js'></script>
+
 </body>
+
 
 </html>
 

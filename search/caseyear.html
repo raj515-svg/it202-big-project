@@ -1,0 +1,16 @@
+<div class='card' style='width: 25.5rem;'>
+    <div class='card-body'>
+    </div>
+</div>
+
+<script src='result.js'></script>
+<script>
+    var endpoint = "https://data.cityofchicago.org/resource/crimes.json";
+    $(document).ready(function() {
+        $.get(endpoint + "?primary_type=" + y, function(response) {
+            $.each(response, function(i, v) {
+                $(".card").append(v.primary_type + "<h6 class='card-subtitle mb-2 text-muted'>" + v.case_number + "<p class='card-text'> Address: " + v.block + "<br> Ward: " + v.ward + "<br>Description: " + v.description + "<br> Arrest: " + v.arrest + "<br> Year: " + v.year + "</p></h6> <button onclick ='hideCard()' id='mapSearch'>Directions</button></div></div>")
+            });
+        });
+    });
+</script>
