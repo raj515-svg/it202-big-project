@@ -8,6 +8,13 @@ $(document).ready(function() {
         hideScreens();
         var target = $(this).attr("href");
         $(target).show();
-        $(target).load("crime_database/"+target.replace("#", "") + ".html");
+        if(target == '#crimesearch') {
+            $(target).load("crime_database/" + target.replace("#", "") + ".html");
+            return false;
+        }
+        if(target == '#sexoffendersearch') {
+            $(target).load("sex_offenders/" + target.replace("#", "") + ".html");
+            return false;
+        }
     });
 });

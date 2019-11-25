@@ -1,8 +1,8 @@
-var x, y, k, j;
+var x, y, k, j, a, b, c;
 $(document).ready(function() {
     $("#numSearch").on('click', function() {
         x = $("#caseNum").val();
-        $("body").load("crime_database/" + "casenum.html");
+        $("#load").load("crime_database/" + "casenum.html");
         return false;
     });
 });
@@ -10,7 +10,7 @@ $(document).ready(function() {
     $("#searchBy").on('click', function() {
         for(k = 2001; k <= 2019; k++) {
             if($('#is' + k + 'Selected').prop('checked')) {
-                $("body").load("crime_database/" + "year.html");
+                $("#load").load("crime_database/" + "year.html");
                 return false;
             }
         }
@@ -21,10 +21,31 @@ $(document).ready(function() {
         y = $("#crime").val();
         for(j = 2001; j <= 2019; j++) {
             if($('#is' + j + 'Selected').prop('checked')) {
-                $("body").load("crime_database/" + "caseyear.html");
+                $("#load").load("crime_database/" + "caseyear.html");
                 return false;
             }
         }
+    });
+});
+$(document).ready(function() {
+    $("#nameSearch").on('click', function() {
+        a = $("#name").val();
+        $("#load").load("sex_offenders/" + "name.html");
+        return false;
+    });
+});
+$(document).ready(function() {
+    $("#raceSearch").on('click', function() {
+        b = $("#race").val();
+        $("#load").load("sex_offenders/" + "race.html");
+        return false;
+    });
+});
+$(document).ready(function() {
+    $("#ageSearch").on('click', function() {
+        c = $("#age").val();
+        $("#load").load("sex_offenders/" + "age.html");
+        return false;
     });
 });
 $(".dropdown dt a").on('click', function() {
