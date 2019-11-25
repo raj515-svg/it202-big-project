@@ -23,6 +23,9 @@ $(document).ready(function() {
             if($('#is' + j + 'Selected').prop('checked')) {
                 $("#load").load("crime_database/" + "caseyear.html");
                 return false;
+            } else {
+                $("#load").load("crime_database/" + "caseyear.html");
+                return false;
             }
         }
     });
