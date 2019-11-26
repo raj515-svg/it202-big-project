@@ -3,7 +3,6 @@ $(document).ready(function() {
     $("#numSearch").on('click', function() {
         x = $("#caseNum").val().replace().toUpperCase();
         $("#load").load("crime_database/" + "casenum.html");
-        $("#map").show();
         return false;
     });
 });

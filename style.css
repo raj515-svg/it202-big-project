@@ -49,6 +49,17 @@
     color: white;
     font-family: Trattatello, fantasy;
 }
+.resume-section{
+    color:white;
+}
+#description {
+    text-align:center;
+    color: white;
+    font-family: Trattatello, fantasy;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15em;
+}
 .hida {
     color: white;
     font-family: Trattatello, fantasy;
