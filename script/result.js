@@ -1,8 +1,9 @@
 var x, y, k, j, a, b, c;
 $(document).ready(function() {
     $("#numSearch").on('click', function() {
-        x = $("#caseNum").val();
+        x = $("#caseNum").val().replace().toUpperCase();
         $("#load").load("crime_database/" + "casenum.html");
+        $("#map").show();
         return false;
     });
 });
@@ -11,6 +12,7 @@ $(document).ready(function() {
         for(k = 2001; k <= 2019; k++) {
             if($('#is' + k + 'Selected').prop('checked')) {
                 $("#load").load("crime_database/" + "year.html");
+                $("#map").show();
                 return false;
             }
         }
@@ -18,13 +20,16 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
     $("#search").on("click", function() {
-        y = $("#crime").val();
+        y = $("#crime").val().replace().toUpperCase();
         for(j = 2001; j <= 2019; j++) {
             if($('#is' + j + 'Selected').prop('checked')) {
                 $("#load").load("crime_database/" + "caseyear.html");
+                $("#map").show();
                 return false;
-            } else {
+            }
+            else{
                 $("#load").load("crime_database/" + "caseyear.html");
+                $("#map").show();
                 return false;
             }
         }
@@ -32,25 +37,27 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
     $("#nameSearch").on('click', function() {
-        a = $("#name").val();
+        a = $("#name").val().replace().toUpperCase();
         $("#load").load("sex_offenders/" + "name.html");
         return false;
     });
 });
 $(document).ready(function() {
     $("#raceSearch").on('click', function() {
-        b = $("#race").val();
+        b = $("#race").val().replace().toUpperCase();
         $("#load").load("sex_offenders/" + "race.html");
         return false;
     });
 });
 $(document).ready(function() {
     $("#ageSearch").on('click', function() {
-        c = $("#age").val();
-        $("#load").load("sex_offenders/" + "age.html");
+        c = $("#age").val().replace().toUpperCase();
+        $("#load").load("sex_offenders/" + "age.html");       
         return false;
     });
 });
+
+/*========================================Dropdown menu script========================================*/
 $(".dropdown dt a").on('click', function() {
     $(".dropdown dd ul").slideToggle('fast');
 });

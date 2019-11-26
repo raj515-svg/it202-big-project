@@ -2,6 +2,7 @@
 </div>
 
 <script src='script/result.js'></script>
+<script src='map.js'></script>
 <script>
     var endpoint = "https://data.cityofchicago.org/resource/crimes.json";
     // search by year
@@ -14,7 +15,8 @@
                 else {
                     var wasArrested = "No";
                 }
-                $("body").append("<div class='mdc-card demo-card'><div class='mdc-card__primary-action demo-card__primary-action' tabindex='0'></div><div class='demo-card__primary'> <h2 class='demo-card__title mdc-typography mdc-typography--headline6'>" + v.year + "</h2><h3 class='demo-card__subtitle mdc-typography mdc-typography--subtitle2'>" + v.primary_type +  "<br>Address: " + v.block + "<br> Ward: " + v.ward + "<br>Description: " + v.description + "<br> Arrested: " + wasArrested + "<br> Case Number: " + v.case_number + "</p></h6> <button onclick ='hideCard()' id='mapSearch'>Directions</button></h3></div><div class='demo-card__secondary mdc-typography mdc-typography--body2'></div></div><div class='mdc-card__actions'><div class='mdc-card__action-buttons'></div></div>");
+                $("body").append("<div class='mdc-card demo-card'><div class='mdc-card__primary-action demo-card__primary-action' tabindex='0'></div><div class='demo-card__primary'> <h2 class='demo-card__title mdc-typography mdc-typography--headline6'>" + v.year + "</h2><h3 class='demo-card__subtitle mdc-typography mdc-typography--subtitle2'>" + v.primary_type +  "<br>Address: " + v.block + "<br> Ward: " + v.ward + "<br>Description: " + v.description + "<br> Arrested: " + wasArrested + "<br> Case Number: " + v.case_number + "</p></h6> <button id='mapSearch'>Directions</button></h3></div><div class='demo-card__secondary mdc-typography mdc-typography--body2'></div></div><div class='mdc-card__actions'><div class='mdc-card__action-buttons'></div></div>");
+                createMarkers(v);
             });
         });
     });

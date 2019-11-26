@@ -49,6 +49,10 @@
     color: white;
     font-family: Trattatello, fantasy;
 }
+.hida {
+    color: white;
+    font-family: Trattatello, fantasy;
+}
 .navbar {
     font-family:Luminari, fantasy;
 }
@@ -135,7 +139,11 @@ input[type=text]:focus {
 .dropdown dd ul li a:hover {
     background-color: #fff;
 }
-.mdc-card{
+.mdc-card {
     font-family: Jazz LET, fantasy;
     text-align: center;
+}
+#map {
+    height: 400px;
+    width: 100%;
 }

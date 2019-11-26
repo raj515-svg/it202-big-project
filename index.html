@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
     <link href="style.css" rel="stylesheet" type="text/css" />
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -17,24 +19,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="HandheldFriendly" content="true">
     <script src="//cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/e3a52e0f2a.js" crossorigin="anonymous"></script>
 </head>
 
 <body class='image'>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <a class="navbar-brand" href="#">Chicago Crime Search</a>
+        <a class="navbar-brand" href="#"> <i class="fas fa-hotel"></i> Crimes in Chicago</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a id="crimesearch" class="nav-link" href="">Crime Search <span class="sr-only">(current)</span></a>
+                    <a id="crimesearch" class="nav-link" href="">
+                        <i class="material-icons">wb_iridescent</i> Crime Search <span class="sr-only"><current>                            </current></span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a id="sexoffendersearch" class="nav-link" href="">Sex Offenders</a>
+                    <a id="sexoffendersearch" class="nav-link" href=""> <i class="material-icons">fireplace
+                       </i> Sex Offenders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="#about">
+                        <i class="material-icons">person</i> About</a>
                 </li>
             </ul>
         </div>
@@ -44,7 +51,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src='script/result.js'></script>
     <script src='script/navbar.js'></script>
-
+    <script src='script/geolocation.js'></script>
+    <div id='map' style="display: none"></div>
+    <!--               style="display: none" -->
+    <script src='map.js'></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_ozD9-Pzw4b7Z0vdPGDuaiIw0DNJM9Vc&libraries=visualization&callback=initMap">
+    </script>
 </body>
 
 
