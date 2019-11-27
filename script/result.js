@@ -3,44 +3,38 @@ var db = new Dexie("History");
 db.version(1).stores({
     items: 'id++, age, casenum'
 });
-db.open().catch((error) => {
+db.open().
+catch((error) => {
     console.log(error);
 });
 /*========================================Search Results========================================*/
-var x, y, k, j, a, b, c;
+var x, y, date1, date2, j, a, b, c;
 $(document).ready(function() {
     $("#numSearch").on('click', function() {
         x = $("#caseNum").val().replace().toUpperCase();
-        db.items.put({casenum: x});
+        db.items.put({
+            casenum: x
+        });
         $("#load").load("crime_database/" + "casenum.html");
         return false;
     });
 });
 $(document).ready(function() {
-    $("#searchBy").on('click', function() {
-        for(k = 2001; k <= 2019; k++) {
-            if($('#is' + k + 'Selected').prop('checked')) {
-                $("#load").load("crime_database/" + "year.html");
-                return false;
-            }
-        }
+    $("#date").on('click', function() {
+        date1 = $("#date1").val();
+        date2 = $("#date2").val();
+        $("#load").load("crime_database/" + "year.html");
+        return false;
     });
 });
 $(document).ready(function() {
-    $("#search").on("click", function() {
-        y = $("#crime").val().replace().toUpperCase();
-        for(j = 2001; j <= 2019; j++) {
-            if($('#is' + j + 'Selected').prop('checked')) {
-                $("#load").load("crime_database/" + "caseyear.html");
-                return false;
-            } 
-            else {
-                
-                $("#load").load("crime_database/" + "caseyear.html");
-                return false;
-            }
-        }
-    });
+        $("#search").on("click", function() {
+            y = $("#crime").val().replace().toUpperCase();
+            date1 = $("#date1").val();
+            date2 = $("#date2").val();
+            $("#load").load("crime_database/" + "caseyear.html");
+            return false;
+        });
 });
 $(document).ready(function() {
     $("#nameSearch").on('click', function() {
@@ -50,7 +44,7 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function() {
-    $("#raceSearch").on('click', function() {        
+    $("#raceSearch").on('click', function() {
         b = $("#race").val().replace().toUpperCase();
         $("#load").load("sex_offenders/" + "race.html");
         return false;
@@ -59,7 +53,9 @@ $(document).ready(function() {
 $(document).ready(function() {
     $("#ageSearch").on('click', function() {
         c = $("#age").val().replace().toUpperCase();
-         db.items.put({age: c});
+        db.items.put({
+            age: c
+        });
         $("#load").load("sex_offenders/" + "age.html");
         return false;
     });

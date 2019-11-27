@@ -15,7 +15,7 @@ window.onload = function() {
   };
    
   var geoError = function(error) {
-    console.log('Error occurred. Error code: ' + error.code);
+    console.log('Error occurred. Error code: ' + error.code + ' Error message:' +error.message);
     // error.code can be:
     //   0: unknown error
     //   1: permission denied
