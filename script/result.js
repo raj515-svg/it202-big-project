@@ -36,6 +36,7 @@ $(document).ready(function() {
             return false;
         });
 });
+
 $(document).ready(function() {
     $("#nameSearch").on('click', function() {
         a = $("#name").val().replace().toUpperCase();
@@ -60,11 +61,6 @@ $(document).ready(function() {
         return false;
     });
 });
-
-function showMaps() {
-    $("#load").hide();
-    $("#map").show();
-};
 /*========================================Dropdown menu script========================================*/
 $(".dropdown dt a").on('click', function() {
     $(".dropdown dd ul").slideToggle('fast');

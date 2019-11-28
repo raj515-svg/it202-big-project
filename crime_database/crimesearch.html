@@ -1,103 +1,30 @@
+<!-- <select>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select> -->
 <div class="contains" style="text-align: center">
     <h1 style="color:white">Search By Crime Type</h1>
     <div class="search-bar">
         <input type="text" placeholder="Type of crime and/or select year" id="crime">
     </div>
-    <button class = "button"id="search">
+    <button class="button" id="search">
         <i class="fas fa-search"></i>
     </button>
 </div>
 <div class="contains" style="text-align: center">
-    <h1 style="color:white">Search in Specific Date Range</h1>
+    <h1 style="color:white">Search in Specific Date And Time Range</h1>
     <h5>Format should be same as mentioned in the search bar</h5>
     <div class="search-bar">
-        <input type="text" placeholder="YYYY-MM-DDTHH:MM" id="date1">
-    </div>
-</div>
-TO
-<div class="contains" style="text-align: center">
-    <div class="search-bar">
+        <input type="text" placeholder="YYYY-MM-DDTHH:MM" id="date1"> To 
         <input type="text" placeholder="YYYY-MM-DDTHH:MM" id="date2">
     </div>
-    <button class = "button"id="date">
+
+    <button class="button" id="date">
         <i class="fas fa-search"></i>
     </button>
 </div>
-<!-- <dl class="dropdown" align = 'center'>
-
-    <dt>
-    <a href="#">
-      <span class="hida">Search by Year</span>    
-      <p class="multiSel"></p>  
-    </a>
-    </dt>
-    <dd >
-        <div class="mutliSelect" >
-            <ul>
-                2019:
-                <input type="checkbox" id="is2019Selected" value="2019">
-                <br>2018:
-                <input type="checkbox" id="is2018Selected" value="2018">
-                <br>2017:
-
-                <input type="checkbox" id="is2017Selected" value="2017">
-                <br>2016:
-
-                <input type="checkbox" id="is2016Selected" value="2016">
-                <br>2015:
-
-                <input type="checkbox" id="is2015Selected" value="2015">
-                <br>2014:
-
-                <input type="checkbox" id="is2014Selected" value="2014">
-                <br>2013:
-
-                <input type="checkbox" id="is2013Selected" value="2013">
-                <br>2012:
-
-                <input type="checkbox" id="is2012Selected" value="2012">
-                <br>2011:
-
-                <input type="checkbox" id="is2011Selected" value="2011">
-                <br>2010:
-
-                <input type="checkbox" id="is2010Selected" value="2010">
-                <br>2009:
-
-                <input type="checkbox" id="is2009Selected" value="2009">
-                <br>2008:
-
-                <input type="checkbox" id="is2008Selected" value="2008">
-                <br>2007:
-
-                <input type="checkbox" id="is2007Selected" value="2007">
-                <br>2006:
-
-                <input type="checkbox" id="is2006Selected" value="2006">
-                <br>2005:
-
-                <input type="checkbox" id="is2005Selected" value="2005">
-                <br>2004:
-
-                <input type="checkbox" id="is2004Selected" value="2004">
-                <br>2003:
-
-                <input type="checkbox" id="is2003Selected" value="2003">
-                <br>2002:
-
-                <input type="checkbox" id="is2002Selected" value="2002">
-                <br>2001:
-
-                <input type="checkbox" id="is2001Selected" value="2001">
-                <br>
-                <br>
-            </ul>
-        </div>
-    </dd>
-    <div>
-        <button class="button" type="submit" id="searchBy"><i class="fas fa-search"></i></button>
-    </div>
-</dl> -->
 <div class="content" style="text-align: center width:800px; margin:0 auto;">
     <div class="contains" style="text-align: center">
         <h2>Case Number</h2>
@@ -109,4 +36,15 @@ TO
         <br>
     </div>
 </div>
+<div class="content" style="text-align: center width:800px; margin:0 auto;">
+    <div class="contains" style="text-align: center">
+        <h2>Crimes Happened Nearby</h2>
+        <button class="button" id="location">
+            <i class="fas fa-search"></i>
+        </button>
+        <br>
+        <br>
+    </div>
+</div>
+<script src='geolocation/geolocation.js'></script>
 <script src='script/result.js'></script>

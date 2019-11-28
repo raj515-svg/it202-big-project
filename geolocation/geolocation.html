@@ -1,0 +1,17 @@
+<div class='card'>
+</div>
+
+<script src='script/result.js'></script>
+<script src='map.js'></script>
+<script src='geolocation/geolocation.js'></script>
+<script>
+    var endpoint = "https://data.cityofchicago.org/resource/crimes.json";
+    // search by year
+    $(document).ready(function() {
+        $.get(endpoint + "?$where=within_circle(location," + lat +", " + lng + ", 90)", function(response) {
+            $.each(response, function(i, v) {
+                createMarkers(v);
+            });
+        });
+    });
+</script>
