@@ -23,7 +23,7 @@
 </head>
 
 <body class='image'>
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <!--     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <a id="home" class="navbar-brand" href="#"> <i class="fas fa-hotel"></i> Crimes in Chicago</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -46,22 +46,54 @@
             </ul>
         </div>
     </nav>
+ -->
+    <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
+        <div class="mdc-drawer__content">
+            <nav class="mdc-list">
+                <a class="mdc-list-item mdc-list-item--activated" id="home" href="#" aria-current="page">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+                    <span class="mdc-list-item__text">Home</span>
+                </a>
+                <a class="mdc-list-item" id="crimesearch" href="#">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">search</i>
+                    <span class="mdc-list-item__text">Crime Search</span>
+                </a>
+                <a class="mdc-list-item" id="sexoffendersearch" href="#">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+                    <span class="mdc-list-item__text">Sex Offenders</span>
+                </a>
+                <a class="mdc-list-item" id="about" href="#">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
+                    <span class="mdc-list-item__text">About</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="mdc-drawer-scrim"></div>
+
+    <header class="mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+                <span class="mdc-top-app-bar__title">Chicago Crime Search</span>
+            </section>
+        </div>
+    </header>
+
+
 
     <p id='description' style="font-size:4vw;">
         Welcome to Chicago Crime Search! Here you can search crimes and sex violations that had happened in Chicago since 2001 till the present day.
         <p>
             <div id='load'></div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+            <div id='map' style="display: none"></div>
             <script src='script/result.js'></script>
             <script src='script/navbar.js'></script>
             <script src='geolocation/geolocation.js'></script>
-            <div id='map' style="display: none"></div>
-            <!--               style="display: none" -->
             <script src='map.js'></script>
-            <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-            </script>
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_ozD9-Pzw4b7Z0vdPGDuaiIw0DNJM9Vc&libraries=visualization&callback=initMap">
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_ozD9-Pzw4b7Z0vdPGDuaiIw0DNJM9Vc&callback=initMap">
             </script>
 </body>
 

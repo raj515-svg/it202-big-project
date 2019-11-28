@@ -1,3 +1,23 @@
+/*========================================MCW Navbar========================================*/
+window.mdc.autoInit();
+      // mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer')); 
+      var drawer = document.querySelector('.mdc-drawer').MDCDrawer;
+      // console.log(drawer);
+    
+      // open drawer on nav icon
+      document.getElementsByClassName("mdc-top-app-bar__navigation-icon")[0].addEventListener("click", function(){
+        drawer.open = true;
+      });
+    
+      
+      // close drawer on selection
+      var navs = document.getElementsByClassName("mdc-list-item");
+      
+      for (var i = 0; i < navs.length; i++) {
+        navs[i].addEventListener("click", function() {
+          drawer.open = false;
+        })
+      };
 /*========================================IndexDB========================================*/
 var db = new Dexie("History");
 db.version(1).stores({

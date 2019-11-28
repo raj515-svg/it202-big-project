@@ -38,7 +38,6 @@
 }
 .contains {
     color: white;
-    font-family: Trattatello, fantasy;
 }
 .resume-section{
     color:white;
@@ -46,23 +45,17 @@
 #description {
     text-align:center;
     color: white;
-    font-family: Trattatello, fantasy;
     margin-left: auto;
     margin-right: auto;
     width: 15em;
 }
 .hida {
     color: white;
-    font-family: Trattatello, fantasy;
-}
-.navbar {
-    font-family:Luminari, fantasy;
 }
 .card {
     text-align:center;
 }
 .mdc-card {
-    font-family: Jazz LET, fantasy;
     text-align: center;
     border-radius: 15px;
 }
