@@ -1,0 +1,21 @@
+{
+    "short_name": "CC",
+    "name": "Chicago Crimes",
+    "start_url": "index.html",
+    "background_color": "#338DFF",
+    "display": "standalone",
+    "description": "An app to search crimes and sex offences happened nearby",
+    "icons": [
+    {
+      "src": "img/icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/icons-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+    "theme_color": "#910000"
+}

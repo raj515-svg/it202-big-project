@@ -1,4 +1,7 @@
-.search-bar{
+body {
+    margin: 0;
+}
+.search-bar {
     border-radius: 50px;
 }
 .image {
@@ -7,47 +10,46 @@
     background: url(bg.jpg) repeat center;
     background-size: cover;
 }
-.content {
-    margin: 1em;
-}
 .button {
-  padding: 5px 15px;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: black;
-  background-color: white;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
+    padding: 5px 15px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
 }
-
-.button:hover {background-color: grey}
-
+.button:hover {
+    background-color: grey
+}
 .button:active {
-  background-color: grey;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+    background-color: grey;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
-
 #map {
     width: 100%;
     height: 400px;
     background-color: grey;
 }
 .contains {
-    color: white;
+    color: white; 
 }
-.resume-section{
+.resume-section {
     color:white;
 }
 #description {
-    text-align:center;
-    color: white;
-    margin-left: auto;
-    margin-right: auto;
-    width: 15em;
+    color:white;
+}
+#scrolldown {
+    position: absolute;
+    top: 100px;
+    left:500px;
+    background-color: translate;
+    color:white;
 }
 .hida {
     color: white;
@@ -60,6 +62,5 @@
     border-radius: 15px;
 }
 #map {
-    height: 400px;
-    width: 100%;
+    height: 100%;
 }

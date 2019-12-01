@@ -1,23 +1,3 @@
-/*========================================MCW Navbar========================================*/
-window.mdc.autoInit();
-      // mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer')); 
-      var drawer = document.querySelector('.mdc-drawer').MDCDrawer;
-      // console.log(drawer);
-    
-      // open drawer on nav icon
-      document.getElementsByClassName("mdc-top-app-bar__navigation-icon")[0].addEventListener("click", function(){
-        drawer.open = true;
-      });
-    
-      
-      // close drawer on selection
-      var navs = document.getElementsByClassName("mdc-list-item");
-      
-      for (var i = 0; i < navs.length; i++) {
-        navs[i].addEventListener("click", function() {
-          drawer.open = false;
-        })
-      };
 /*========================================IndexDB========================================*/
 var db = new Dexie("History");
 db.version(1).stores({
@@ -58,9 +38,9 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    $("#nameSearch").on('click', function() {
-        a = $("#name").val().replace().toUpperCase();
-        $("#load").load("sex_offenders/" + "name.html");
+    $("#blockSearch").on('click', function() {
+        a = $("#block").val().replace().toUpperCase();
+        $("#load").load("sex_offenders/" + "block.html");
         return false;
     });
 });
@@ -80,32 +60,4 @@ $(document).ready(function() {
         $("#load").load("sex_offenders/" + "age.html");
         return false;
     });
-});
-/*========================================Dropdown menu script========================================*/
-$(".dropdown dt a").on('click', function() {
-    $(".dropdown dd ul").slideToggle('fast');
-});
-$(".dropdown dd ul li a").on('click', function() {
-    $(".dropdown dd ul").hide();
-});
-
-function getSelectedValue(id) {
-    return $("#" + id).find("dt a span.value").html();
-}
-$(document).bind('click', function(e) {
-    var $clicked = $(e.target);
-    if(!$clicked.parents().hasClass("dropdown")) $(".dropdown dd ul").hide();
-});
-$('.mutliSelect input[type="checkbox"]').on('click', function() {
-    var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
-        title = $(this).val() + ",";
-    if($(this).is(':checked')) {
-        var html = '<span title="' + title + '">' + title + '</span>';
-        $('.multiSel').append(html);
-        $(".hida").hide();
-    } else {
-        $('span[title="' + title + '"]').remove();
-        var ret = $(".hida");
-        $('.dropdown dt a').append(ret);
-    }
 });
