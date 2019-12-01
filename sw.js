@@ -1,5 +1,5 @@
-const staticCache = 'site-static';
- const assets = [
+var staticCache = 'site-static';
+var assets = [
      'index.html',
      'app.js',
      'crime_database/casenum.html',
@@ -17,12 +17,12 @@ const staticCache = 'site-static';
      'about.html',
      'bg.jpg',
      'map.js',
-     'style.css'
+     'style.css',
  ];
  //install event
- self.addEventListener('install', evt=> {
+ self.addEventListener('install', evt => {
      console.log('service worker installed');
-   evt.waitUntil(caches.open(staticCache).then(cache=>{
+   evt.waitUntil(caches.open(staticCache).then(cache => {
          console.log('cache adding');
          cache.addAll(assets);                        
        })
@@ -30,7 +30,7 @@ const staticCache = 'site-static';
  });
 
  //activate event
- self.addEventListener('activate', evt=>{
+ self.addEventListener('activate', evt =>{
        console.log('service worker activated');
  });
 
@@ -38,7 +38,7 @@ const staticCache = 'site-static';
  self.addEventListener('fetch', evt=>{
           //console.log('fetch event', evt);
           evt.respondWith(
-              caches.match(evt.request).then(cacheRes =>{
+              caches.match(evt.request).then(cacheRes => {
                   return cacheRes || fetch(evt.request);
               })
           );

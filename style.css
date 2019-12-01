@@ -42,7 +42,12 @@ body {
     color:white;
 }
 #description {
-    color:white;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+    color: white;
 }
 #scrolldown {
     position: absolute;
@@ -50,9 +55,6 @@ body {
     left:500px;
     background-color: translate;
     color:white;
-}
-.hida {
-    color: white;
 }
 .card {
     text-align:center;

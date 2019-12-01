@@ -7,6 +7,7 @@
     // search by year
     $(document).ready(function() {
         $.get(endpoint + "?race=" + b, function(response) {
+            $("#load").append("<div class = 'contains'>Total Results: " + response.length + "</div>");
             $.each(response, function(i, v) {
                 if(v.victim_minor == 'Y') {
                     var wasMinor = "Yes";

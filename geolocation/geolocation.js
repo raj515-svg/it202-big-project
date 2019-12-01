@@ -25,6 +25,7 @@ window.onload = function() {
 $(document).ready(function() {
     $("#location").on('click', function() {
         $("#load").load("geolocation/" + "geolocation.html");
+        setMapOnAll(null);
         $("#map").show();
         return false;
     });

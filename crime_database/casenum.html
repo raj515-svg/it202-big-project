@@ -8,6 +8,7 @@
     //search by case number
     $(document).ready(function() {
         $.get(endpoint + "?case_number=" + x, function(response) {
+            $("#load").append("<div class = 'contains'>Total Results: " + response.length + "</div>");
             $.each(response, function(i, v) {
                 if(v.arrest == 'true') {
                     var wasArrested = "Yes";
