@@ -1,7 +1,7 @@
 /*========================================IndexDB========================================*/
 var db = new Dexie("History");
 db.version(1).stores({
-    items: 'id++, type, date1, date2, age, casenum, block'
+    items: 'id++, type, date1, date2, age, casenum, block,latitude, longitude'
 });
 db.open().
 catch((error) => {

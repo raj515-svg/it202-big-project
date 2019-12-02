@@ -1,3 +1,12 @@
+// /*========================================IndexDB========================================*/
+// var db = new Dexie("location");
+// db.version(1).stores({
+//     items: 'id++, latitude, longitude'
+// });
+// db.open().
+// catch((error) => {
+//     console.log(error);
+// });
 // check for Geolocation support
 if(navigator.geolocation) {
     console.log('Geolocation is supported!');
@@ -11,6 +20,8 @@ window.onload = function() {
         startPos = position;
          lat = startPos.coords.latitude;
          lng = startPos.coords.longitude;
+        console.log(1);
+         db.items.put({latitude: lat, longitude: lng});
     };
     var geoError = function(error) {
         console.log('Error occurred. Error code: ' + error.code + ' Error message:' + error.message);
