@@ -8,6 +8,9 @@
     //search by case number
     $(document).ready(function() {
         $.get(endpoint + "?case_number=" + x, function(response) {
+            if(response.length == 0){
+                alert("No Results Found!! Go back to search page.")
+            }
             $("#load").append("<div class = 'contains'>Total Results: " + response.length + "</div>");
             $.each(response, function(i, v) {
                 if(v.arrest == 'true') {

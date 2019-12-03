@@ -20,12 +20,11 @@
     <script src="https://kit.fontawesome.com/e3a52e0f2a.js" crossorigin="anonymous"></script>
         <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
     <meta name="theme_color" content: "#910000">
-<!--     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">--->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="Description" content="Chicago Crimes PWA">
 </head>
-
 <body class='image'>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <a id="home" class="navbar-brand" href="#"> <i class="fas fa-hotel"></i>Chicago Crimes</a>
@@ -52,13 +51,18 @@
     </nav>
     <div id='description'>
         <p style="font-size:4vw;">
-            Welcome to Chicago Crimes! Here you can search crimes and sex violations that had happened in Chicago since 2001 till the present day. You can also search crimes that happened nearby you by giving access to your location.
+            Welcome to Chicago Crimes! Here you can search crimes and sex violations that has happened in Chicago since 2001 till the present day. You can also search crimes that happened nearby you by giving access to your location.
         </p>
     </div>
     <div id='load'></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <div id='map' style="display: none"></div>
+    <script>
+        if(navigator.onLine == false){
+            alert("You are offline. You need to go online to search crimes happened in Chicago");
+        }
+    </script>
     <script src='script/result.js'></script>
     <script src='script/navbar.js'></script>
     <script src='geolocation/geolocation.js'></script>

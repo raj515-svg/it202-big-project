@@ -5,8 +5,12 @@
 <script>
     var endpoint = "https://data.cityofchicago.org/resource/crimes.json";
     $(document).ready(function() {
-        $.get(endpoint + "?$where=date between '" + date1 +":00.000' and '"+ date2 +":00.000' AND primary_type='" + y + "'" , function(response) {
+        $.get(endpoint + "?$where=date between '" + date1 +"T00:00:00.000' and '"+ date2 +"T00:00:00.000' AND primary_type='" + y + "'" , function(response) {
+            if(response.length == 0){
+                alert("No Results Found!! Go back to search page.")
+            }
             $("#load").append("<div class = 'contains'>Total Results: " + response.length + "</div>");
+            
             $.each(response, function(i, v) {
                 if(v.arrest == 'true') {
                     var wasArrested = "Yes";

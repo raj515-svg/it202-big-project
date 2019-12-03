@@ -16,7 +16,7 @@ $(document).ready(function() {
             casenum: x
         });
         if(x.length == 0) {
-            alert("ARRR! You forgot to add a value in search parameters");
+            alert("ARRR! You forgot to write a case number in search parameters");
             return false;
         }
         $("#load").load("crime_database/" + "casenum.html");
@@ -33,7 +33,7 @@ $(document).ready(function() {
             date2: date2
         });
         if(date1.length == 0 || date2.length == 0) {
-            alert("ARRR! You forgot to add a value in search parameters");
+            alert("ARRR! You forgot to witre date in search parameters");
             return false;
         }
         $("#load").load("crime_database/" + "year.html");
@@ -47,7 +47,7 @@ $(document).ready(function() {
         date1 = $("#date1").val();
         date2 = $("#date2").val();
         if(y.length == 0 || date1.length == 0 || date2.length == 0) {
-            alert("ARRR! You forgot to add a value in search parameters");
+            alert("ARRR! You forgot to write either date or type of crime in search parameters");
             return false;
         }
         db.items.put({
@@ -67,7 +67,7 @@ $(document).ready(function() {
            block: a
         });
         if(block.length == 0) {
-            alert("ARRR! You forgot to add a value in search parameters");
+            alert("ARRR! You forgot to write a address in search parameters");
             return false;
         }
         $("#load").load("sex_offenders/" + "block.html");
@@ -78,7 +78,7 @@ $(document).ready(function() {
     $("#raceSearch").on('click', function() {
         b = $("#race").val().replace().toUpperCase();
         if(b.length == 0) {
-            alert("ARRR! You forgot to add a value in search parameters");
+            alert("ARRR! You forgot to write a race in search parameters");
             return false;
         }
         $("#load").load("sex_offenders/" + "race.html");
@@ -92,7 +92,7 @@ $(document).ready(function() {
             age: c
         });
         if(c.length == 0) {
-            alert("ARRR! You forgot to add a value in search parameters");
+            alert("ARRR! You forgot to write an age in search parameters");
             return false;
         }
         $("#load").load("sex_offenders/" + "age.html");

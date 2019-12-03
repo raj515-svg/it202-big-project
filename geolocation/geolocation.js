@@ -1,27 +1,21 @@
-// /*========================================IndexDB========================================*/
-// var db = new Dexie("location");
-// db.version(1).stores({
-//     items: 'id++, latitude, longitude'
-// });
-// db.open().
-// catch((error) => {
-//     console.log(error);
-// });
 // check for Geolocation support
 if(navigator.geolocation) {
     console.log('Geolocation is supported!');
 } else {
     console.log('Geolocation is not supported for this Browser/OS.');
 }
-var lat,lng;
+var lat, lng;
 window.onload = function() {
     var startPos;
     var geoSuccess = function(position) {
         startPos = position;
-         lat = startPos.coords.latitude;
-         lng = startPos.coords.longitude;
-        console.log(1);
-         db.items.put({latitude: lat, longitude: lng});
+        lat = startPos.coords.latitude;
+        lng = startPos.coords.longitude;
+        //console.log(1);
+        db.items.put({
+            latitude: lat,
+            longitude: lng
+        });
     };
     var geoError = function(error) {
         console.log('Error occurred. Error code: ' + error.code + ' Error message:' + error.message);
@@ -31,7 +25,7 @@ window.onload = function() {
         //   2: position unavailable (error response from location provider)
         //   3: timed out
     };
-    navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+        navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
 };
 $(document).ready(function() {
     $("#location").on('click', function() {
