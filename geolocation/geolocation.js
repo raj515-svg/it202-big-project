@@ -1,3 +1,10 @@
+if(lat == undefined || lng == undefined){
+    db.items.get(1, function (lastLocation) {
+        mylat = lastLocation.latitude;
+        mylng = lastLocation.longitude;
+
+});
+}
 // check for Geolocation support
 if(navigator.geolocation) {
     console.log('Geolocation is supported!');
@@ -27,6 +34,7 @@ window.onload = function() {
     };
         navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
 };
+
 $(document).ready(function() {
     $("#location").on('click', function() {
         $("#load").load("geolocation/" + "geolocation.html");
