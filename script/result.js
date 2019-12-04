@@ -10,7 +10,7 @@ catch((error) => {
 /*========================================Search Results========================================*/
 var x, y, date1, date2, j, a, b, c;
 $(document).ready(function() {
-    $("#numSearch").on('click', function() {
+        $("#numSearch").on('click', function() {
         x = $("#caseNum").val().replace().toUpperCase();
         db.items.put({
             casenum: x
@@ -25,7 +25,7 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function() {
-    $("#date").on('click', function() {
+    $("#date").on('click ', function() {
         date1 = $("#date1").val();
         date2 = $("#date2").val();
         db.items.put({
@@ -61,7 +61,7 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function() {
-    $("#blockSearch").on('click', function() {
+    $("#blockSearch").on('click ', function() {
         a = $("#block").val().replace().toUpperCase();
         db.items.put({
            block: a
@@ -75,7 +75,7 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function() {
-    $("#raceSearch").on('click', function() {
+    $("#raceSearch").on('click ', function() {
         b = $("#race").val().replace().toUpperCase();
         if(b.length == 0) {
             alert("ARRR! You forgot to write a race in search parameters");
@@ -86,7 +86,7 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function() {
-    $("#ageSearch").on('click', function() {
+    $("#ageSearch").on('click ', function() {
         c = $("#age").val().replace().toUpperCase();
         db.items.put({
             age: c
